@@ -1,4 +1,5 @@
 from django import forms
+from blog.models import Comment
 
 class CommentForm(forms.ModelForm):
     author = forms.CharField(
@@ -14,3 +15,7 @@ class CommentForm(forms.ModelForm):
             'placeholder': 'Оставьте здесь свой комментарий!',
         })
     )
+
+    class Meta:
+        model = Comment
+        fields = ('author', 'body')
